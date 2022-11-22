@@ -21,6 +21,9 @@ Use the following information to configure replication settings and create a rec
 
 *Azure Site Recovery* is an Azure service that replicates workloads running on VMs so that your business-critical infrastructure is protected if there's a disaster. For more information about Azure Site Recovery, see [Learn more about Azure Site Recovery](/azure/site-recovery/site-recovery-overview).
 
+> [!IMPORTANT]
+> Azure Site Recovery can replicate Azure Stack HCI VMs to Azure but is not currently supported for replicating from one Azure Stack HCI on-prem to another.
+
 Azure Site Recovery consists of two components: **replication** and **failover**. The replication portion protects your VMs in case of disaster by replicating the target VM's VHD to an Azure storage account. You can then fail over these VMs and run them in Azure in the event of a disaster. You can also perform a test failover without impacting your primary VMs to test the recovery process in Azure.
 
 Completing setup for the replication component alone is sufficient to protect your VM in the case of disaster. However, you won't be able to start the VM in Azure until you configure the failover portion. You can set up the failover portion when you want to fail over to an Azure VM - this isn't required as part of the initial setup. If the host server goes down and you haven't yet configured the failover component, you can configure it at that time and access the workloads of the protected VM. However, it's a good practice to configure the failover-related settings before a disaster.
